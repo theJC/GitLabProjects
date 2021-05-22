@@ -15,8 +15,8 @@ import com.intellij.util.ThrowableConvertor;
 import com.intellij.util.containers.Convertor;
 import com.ppolivka.gitlabprojects.configuration.SettingsState;
 import git4idea.GitUtil;
-import git4idea.commands.GitCommand;
-import git4idea.commands.GitSimpleHandler;
+import git4idea.commands.*;
+import git4idea.config.GitExecutableManager;
 import git4idea.config.GitVcsApplicationSettings;
 import git4idea.config.GitVersion;
 import git4idea.repo.GitRemote;
@@ -122,31 +122,26 @@ public class GitLabUtil {
                                           @NotNull GitRepository repository,
                                           @NotNull String remote,
                                           @NotNull String url) {
-        final GitSimpleHandler handler = new GitSimpleHandler(project, repository.getRoot(), GitCommand.REMOTE);
-        handler.setSilent(true);
+        final GitLineHandler handler = new GitLineHandler(project, repository.getRoot(), GitCommand.REMOTE);
+        handler.addParameters("add", remote, url);
+        GitCommandResult result = Git.getInstance().runCommand(handler);
 
-        try {
-            handler.addParameters("add", remote, url);
-            handler.run();
-            if (handler.getExitCode() != 0) {
-                showErrorDialog(project, "New remote origin cannot be added to this project.", "Cannot Add New Remote");
-                return false;
-            }
-            // catch newly added remote
-            repository.update();
-            return true;
-        } catch (VcsException e) {
+        if (result.getExitCode() != 0) {
             showErrorDialog(project, "New remote origin cannot be added to this project.", "Cannot Add New Remote");
             return false;
         }
+        // catch newly added remote
+        repository.update();
+        return true;
+
     }
 
     public static boolean testGitExecutable(final Project project) {
         final GitVcsApplicationSettings settings = GitVcsApplicationSettings.getInstance();
-        final String executable = settings.getPathToGit();
+        final String executable = settings.getSavedPathToGit();
         final GitVersion version;
         try {
-            version = GitVersion.identifyVersion(executable);
+            version =  GitExecutableManager.getInstance().getVersion(project);
         } catch (Exception e) {
             showErrorDialog(project, "Cannot find git executable.", "Cannot Find Git");
             return false;

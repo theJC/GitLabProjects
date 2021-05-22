@@ -1,8 +1,8 @@
 <idea-plugin>
     <id>com.ppolivka.gitlabprojects</id>
     <name>GitLab Projects</name>
-    <version>2.0.1</version>
-    <vendor email="polivka.pavel@gmail.com" url="https://www.ppolivka.com">Pavel Polivka</vendor>
+    <version>2.0.1.jc</version>
+    <vendor email="jon.christiansen@gmail.com" url="https://www.jonchristiansen.com">Jon Christiansen</vendor>
 
     <description><![CDATA[
         <h2>GitLab Projects Plugin</h2>

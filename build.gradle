@@ -12,7 +12,7 @@ java {
 }
 
 intellij {
-    version 'IC-2021.1'
+    version 'IC-2021.1.1'
     updateSinceUntilBuild false
     plugins = ['git4idea']
     pluginName 'GitLabProjects'
