@@ -5,11 +5,24 @@ import org.gitlab.api.AuthMethod;
 import org.gitlab.api.GitlabAPI;
 import org.gitlab.api.TokenType;
 import org.gitlab.api.http.GitlabHTTPRequestor;
-import org.gitlab.api.models.*;
+import org.gitlab.api.models.GitlabBranch;
+import org.gitlab.api.models.GitlabMergeRequest;
+import org.gitlab.api.models.GitlabNamespace;
+import org.gitlab.api.models.GitlabNote;
+import org.gitlab.api.models.GitlabProject;
+import org.gitlab.api.models.GitlabSession;
+import org.gitlab.api.models.GitlabUser;
 
 import java.io.IOException;
 import java.net.URLEncoder;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 /**

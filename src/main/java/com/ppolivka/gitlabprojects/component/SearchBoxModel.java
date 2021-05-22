@@ -4,13 +4,21 @@ import com.ppolivka.gitlabprojects.merge.request.EmptyUser;
 import com.ppolivka.gitlabprojects.merge.request.SearchableUser;
 import com.ppolivka.gitlabprojects.merge.request.SearchableUsers;
 
-import javax.swing.*;
+import javax.swing.AbstractListModel;
+import javax.swing.ComboBoxEditor;
+import javax.swing.ComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Searchable ComboBox model with autocomplete and background loading

@@ -1,7 +1,5 @@
 package com.ppolivka.gitlabprojects.merge.info;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Objects;
 
 /**

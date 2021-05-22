@@ -9,20 +9,19 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.util.xmlb.XmlSerializerUtil;
 import com.ppolivka.gitlabprojects.api.ApiFacade;
 import com.ppolivka.gitlabprojects.api.dto.ProjectDto;
-import com.ppolivka.gitlabprojects.api.dto.ServerDto;
 import com.ppolivka.gitlabprojects.dto.GitlabServer;
 import com.ppolivka.gitlabprojects.util.GitLabUtil;
 import git4idea.repo.GitRemote;
 import git4idea.repo.GitRepository;
 import lombok.SneakyThrows;
-import org.apache.commons.lang.StringUtils;
 import org.gitlab.api.models.GitlabProject;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
-import java.util.*;
-
-import static com.ppolivka.gitlabprojects.util.GitLabUtil.isGitLabUrl;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**

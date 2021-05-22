@@ -1,10 +1,8 @@
 package com.ppolivka.gitlabprojects.common;
 
 import com.intellij.openapi.util.IconLoader;
-import com.intellij.util.ImageLoader;
-import com.intellij.util.ui.JBImageIcon;
 
-import javax.swing.*;
+import javax.swing.Icon;
 
 /**
  * Class encapsulating all custom GitLab Project icons
@@ -14,7 +12,5 @@ import javax.swing.*;
  */
 public class GitLabIcons {
 
-    public static Icon gitLabIcon = IconLoader.findIcon("/icons/gitLabSmall.png");
-
-    public static JBImageIcon loadingIcon = new JBImageIcon(ImageLoader.loadFromResource("/icons/loading.gif"));
+    public static Icon gitLabIcon = IconLoader.getIcon("/icons/gitLabSmall.png", GitLabIcons.class);
 }

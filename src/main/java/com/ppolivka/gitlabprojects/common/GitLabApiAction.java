@@ -14,7 +14,7 @@ import com.ppolivka.gitlabprojects.util.GitLabUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import javax.swing.*;
+import javax.swing.Icon;
 
 import static com.ppolivka.gitlabprojects.util.MessageUtil.showErrorDialog;
 

@@ -8,7 +8,7 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.ppolivka.gitlabprojects.configuration.SettingsState;
 import org.jetbrains.annotations.Nullable;
 
-import javax.swing.*;
+import javax.swing.Icon;
 
 /**
  * Abstract Action class that provides method for validating GitLab API Settings

@@ -8,7 +8,10 @@ import org.gitlab.api.models.GitlabMergeRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import javax.swing.*;
+import javax.swing.JComponent;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 import javax.swing.table.TableModel;
 import java.util.List;
 

@@ -14,7 +14,11 @@ import git4idea.remote.GitRepositoryHostingService;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
 
 public class GitLabRepositoryHostingService extends GitRepositoryHostingService {
     @NotNull

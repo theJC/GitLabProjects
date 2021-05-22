@@ -3,10 +3,9 @@ package com.ppolivka.gitlabprojects.configuration;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
-import com.intellij.openapi.ui.ValidationInfo;
 import org.jetbrains.annotations.Nullable;
 
-import javax.swing.*;
+import javax.swing.JComponent;
 
 import static com.ppolivka.gitlabprojects.configuration.SettingsView.DIALOG_TITLE;
 

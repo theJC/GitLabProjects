@@ -1,25 +1,29 @@
 package com.ppolivka.gitlabprojects.util;
 
 import com.intellij.openapi.Disposable;
-import com.intellij.openapi.application.*;
+import com.intellij.openapi.application.AccessToken;
+import com.intellij.openapi.application.Application;
+import com.intellij.openapi.application.ApplicationListener;
+import com.intellij.openapi.application.ModalityInvokator;
+import com.intellij.openapi.application.ModalityState;
 import com.intellij.openapi.components.BaseComponent;
 import com.intellij.openapi.extensions.ExtensionPointName;
+import com.intellij.openapi.extensions.PluginDescriptor;
+import com.intellij.openapi.extensions.PluginId;
 import com.intellij.openapi.progress.ProcessCanceledException;
 import com.intellij.openapi.util.Computable;
 import com.intellij.openapi.util.Condition;
 import com.intellij.openapi.util.Key;
 import com.intellij.openapi.util.ThrowableComputable;
 import com.intellij.util.messages.MessageBus;
+import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.picocontainer.ComponentAdapter;
 import org.picocontainer.PicoContainer;
-import org.picocontainer.PicoVerificationException;
-import org.picocontainer.PicoVisitor;
 
-import java.awt.*;
-import java.util.*;
-import java.util.List;
+import java.awt.Component;
+import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 
@@ -35,6 +39,21 @@ public class DummyApplication implements Application {
 
   public DummyApplication(Object service) {
     this.service = service;
+  }
+
+  @Override
+  public void invokeLaterOnWriteThread(@NotNull final Runnable action) {
+
+  }
+
+  @Override
+  public void invokeLaterOnWriteThread(@NotNull final Runnable action, @NotNull final ModalityState modal) {
+
+  }
+
+  @Override
+  public void invokeLaterOnWriteThread(@NotNull final Runnable action, @NotNull final ModalityState modal, @NotNull final Condition<?> expired) {
+
   }
 
   @Override
@@ -88,6 +107,16 @@ public class DummyApplication implements Application {
   }
 
   @Override
+  public void assertIsNonDispatchThread() {
+
+  }
+
+  @Override
+  public void assertIsWriteThread() {
+
+  }
+
+  @Override
   public void addApplicationListener(@NotNull ApplicationListener applicationListener) {
 
   }
@@ -108,17 +137,7 @@ public class DummyApplication implements Application {
   }
 
   @Override
-  public void saveAll(boolean isForce) {
-
-  }
-
-  @Override
   public void saveSettings() {
-
-  }
-
-  @Override
-  public void saveSettings(boolean isForce) {
 
   }
 
@@ -139,6 +158,11 @@ public class DummyApplication implements Application {
 
   @Override
   public boolean isDispatchThread() {
+    return false;
+  }
+
+  @Override
+  public boolean isWriteThread() {
     return false;
   }
 
@@ -328,64 +352,10 @@ public class DummyApplication implements Application {
       }
 
       @Override
-      public List getComponentInstances() {
-        return null;
-      }
-
-      @Override
-      public PicoContainer getParent() {
-        return null;
-      }
-
-      @Override
       public ComponentAdapter getComponentAdapter(Object o) {
         return null;
       }
 
-      @Override
-      public ComponentAdapter getComponentAdapterOfType(Class aClass) {
-        return null;
-      }
-
-      @Override
-      public Collection getComponentAdapters() {
-        return null;
-      }
-
-      @Override
-      public List getComponentAdaptersOfType(Class aClass) {
-        return null;
-      }
-
-      @Override
-      public void verify() throws PicoVerificationException {
-
-      }
-
-      @Override
-      public List getComponentInstancesOfType(Class aClass) {
-        return null;
-      }
-
-      @Override
-      public void accept(PicoVisitor picoVisitor) {
-
-      }
-
-      @Override
-      public void dispose() {
-
-      }
-
-      @Override
-      public void start() {
-
-      }
-
-      @Override
-      public void stop() {
-
-      }
     };
   }
 
@@ -409,6 +379,26 @@ public class DummyApplication implements Application {
   @NotNull
   @Override
   public Condition getDisposed() {
+    return null;
+  }
+
+  @Override
+  public @NotNull RuntimeException createError(@NotNull final Throwable error, @NotNull final PluginId pluginId) {
+    return null;
+  }
+
+  @Override
+  public @NotNull RuntimeException createError(@NotNull @NonNls final String message, @NotNull final PluginId pluginId) {
+    return null;
+  }
+
+  @Override
+  public @NotNull RuntimeException createError(@NotNull @NonNls final String message, @NotNull final PluginId pluginId, @Nullable final Map<String, String> attachments) {
+    return null;
+  }
+
+  @Override
+  public @NotNull <T> Class<T> loadClass(@NotNull final String className, @NotNull final PluginDescriptor pluginDescriptor) throws ClassNotFoundException {
     return null;
   }
 
